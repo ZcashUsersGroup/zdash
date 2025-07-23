@@ -1,0 +1,104 @@
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  position: relative;
+  font-family: system-ui, sans-serif;
+}
+
+.menu-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
+
+.status-completed {
+  background-color: #28a745;
+}
+.status-inprogress {
+  background-color: #FDDA0D;
+}
+.status-blocked {
+  background-color: #dc3545;
+}
+.status-notstarted {
+  background-color: #888;
+}
+
+.contribute-button {
+  background: #283748;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  background: #eee;
+  border-radius: 10px;
+  height: 16px;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.progress {
+  background: #808080;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.checkpoint {
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 2px solid #aaa;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.checkpoint.filled {
+  background-color: #283748;
+}
+
+.checkpoint-label {
+  position: absolute;
+  top: 20px;
+  font-size: 0.65rem;
+  color: #555;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.milestone-label {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.milestone-label:hover {
+  background-color: #ddd;
+}

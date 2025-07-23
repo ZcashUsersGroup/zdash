@@ -1,0 +1,93 @@
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sort-dropdown {
+  position: relative;
+}
+
+.sort-button {
+  background: #f9f9fc;
+  border: none;
+  color: #283748;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  font-family: system-ui, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-menu div {
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+  background-color: #eee;
+}
+
+.dropdown-menu .selected {
+  font-weight: bold;
+}
+
+.status-toggle {
+  display: inline-flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.status-toggle button {
+  padding: 0.4rem 1.2rem;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s, color 0.2s;
+}
+
+.status-toggle button.active {
+  background: #283748;
+  color: white;
+}
+
+.currency-toggle {
+  display: inline-flex;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.currency-toggle button {
+  padding: 0.4rem 1.2rem;
+  border: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #555;
+  background: none;
+}
+
+.currency-toggle button.active {
+  background: #283748;
+  color: white;
+}

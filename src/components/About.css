@@ -1,0 +1,46 @@
+.about-section {
+  background-color: #283748;
+  color: white;
+  padding: 2rem;
+  margin-top: 3rem;
+  font-family: system-ui, sans-serif;
+}
+
+.about-section h2 {
+  color: white;
+}
+
+.about-section p,
+.about-section a {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.about-section a:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  border: 2px solid white;
+}
+
+.qr-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: -1rem;
+}
+
+.footer-credit {
+  text-align: right;
+  margin-top: 3rem;
+  color: white;
+}
