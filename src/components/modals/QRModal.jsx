@@ -3,11 +3,12 @@ import '../Modals.css';
 export default function QRModal({ data, onClose }) {
   const address = data?.address || '';
   const qrUrl = address
-    ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=283748&data=${encodeURIComponent(address)}`
+    ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=283748&bgcolor=f2cda3&data=${encodeURIComponent(address)}`
     : '';
 
   return (
     <div className="modal">
+      <button className="close-button" onClick={onClose}>×</button>
       <h2>Contribute</h2>
       {address ? (
         <>
@@ -17,7 +18,6 @@ export default function QRModal({ data, onClose }) {
       ) : (
         <p><em>No wallet address available</em></p>
       )}
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }

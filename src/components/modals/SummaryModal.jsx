@@ -14,9 +14,9 @@ export default function SummaryModal({ data, onClose }) {
 
   return (
     <div className="modal">
+      <button className="close-button" onClick={onClose}>×</button>
       <h2>{title}</h2>
       <p>{description}</p>
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }

@@ -51,7 +51,7 @@ export default function Card({ card, currency, exchangeRate, onOpenModal }) {
         <div className="progress" style={{ width: `${progress}%` }}></div>
 
         {['Analyze', 'Design', 'Develop', 'Deploy', 'Maintain'].map((milestone, i) => {
-          const left = [0, 25, 50, 75, 98][i];
+          const left = [0, 25, 50, 75, 97.7][i];
           const isFilled = progress >= left;
           return (
             <div key={milestone}>

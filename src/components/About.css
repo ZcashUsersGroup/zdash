@@ -1,18 +1,18 @@
 .about-section {
   background-color: #283748;
-  color: white;
+  color: #f2cda3;
   padding: 2rem;
   margin-top: 3rem;
   font-family: system-ui, sans-serif;
 }
 
 .about-section h2 {
-  color: white;
+  color: #f2cda3;
 }
 
 .about-section p,
 .about-section a {
-  color: white;
+  color: #f2cda3;
   margin-bottom: 1.5rem;
 }
 
@@ -30,7 +30,7 @@
 .qr-image {
   width: 200px;
   height: 200px;
-  border: 2px solid white;
+  border: 2px solid #f2cda3;;
 }
 
 .qr-caption {

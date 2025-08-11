@@ -11,6 +11,7 @@ export default function DetailsModal({ data, onClose }) {
 
   return (
     <div className="modal">
+      <button className="close-button" onClick={onClose}>×</button>
       <h2>{title}</h2>
 
       <div style={{ textAlign: 'left' }}>
@@ -44,7 +45,6 @@ export default function DetailsModal({ data, onClose }) {
         )}
       </div>
 
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }

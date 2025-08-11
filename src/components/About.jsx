@@ -40,7 +40,7 @@ export default function About() {
 
         <div className="qr-container">
           <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=283748&data=t1MkgrZASAJbtNzEagDtUbapFKiS7sNQihm"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=283748&bgcolor=f2cda3&data=t1MkgrZASAJbtNzEagDtUbapFKiS7sNQihm"
             alt="QR Code"
             className="qr-image"
           />

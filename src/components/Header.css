@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  background: #f2cda3;
+  color: #283748;
   padding: 0 1rem;
   font-family: system-ui, sans-serif;
 }
@@ -11,11 +13,14 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
+  color: #283748;
 }
 
 .search-container {
   flex: 1;
   display: flex;
+  background: #f2cda3;
+  color: #283748;
   justify-content: center;
 }
 
@@ -24,8 +29,15 @@
   font-size: 1rem;
   width: 100%;
   max-width: 400px;
+  background: #f2cda3;
+  color: #283748;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #283748;
+}
+
+.search-input::placeholder {
+  color: #283748; /* Change this to the color you want for placeholder text */
+  opacity: 1; /* Ensures full color visibility */
 }
 
 .hamburger-menu {
@@ -45,8 +57,9 @@
   top: 2.5rem;
   right: 0;
   font-family: system-ui, sans-serif;
-  background: white;
-  border: 1px solid #ccc;
+  background: #f2cda3;
+  color: #283748;
+  border: 2px solid #283748;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -63,5 +76,5 @@
 }
 
 .hamburger-dropdown a:hover {
-  background-color: #eee;
+  background-color: #e2bd93;
 }

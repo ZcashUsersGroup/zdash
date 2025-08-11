@@ -1,9 +1,10 @@
 .stats-box {
-  border: 2px solid #f9f9fc;
+  border: 2px solid #283748;
   border-radius: 12px;
   padding: 1rem;
   margin: 2rem 0;
-  background: #f9f9fc;
+  background: #f2cda3;
+  color: #283748;
   font-family: system-ui, sans-serif;
 }
 
@@ -15,7 +16,7 @@
 
 .stats-inner > div {
   flex: 1;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #f2cda3;
   padding: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -26,12 +27,12 @@
 }
 
 .stats-inner > div:hover {
-  background-color: #f0f0f0;
+  background-color: #e2bd93;
 }
 
 .stats-label {
   font-size: 0.9rem;
-  color: #555;
+  color: #283748;
 }
 
 .stats-value {
