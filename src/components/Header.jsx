@@ -2,20 +2,17 @@ import { useState, useEffect } from 'react';
 import logo from '../assets/logo.png'; // Replace with your actual logo path
 import './Header.css'; // Optional: for scoped styles
 
-export default function Header({ onSearch }) {
+export default function Header({ onSearch, currency, setCurrency }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen(prev => !prev);
 
-  // Close dropdown when clicking outside
-  const handleOutsideClick = (e) => {
-    if (!e.target.closest('.hamburger-menu')) {
-      setDropdownOpen(false);
-    }
-  };
-
-  // Attach global click handler
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.hamburger-menu')) {
+        setDropdownOpen(false);
+      }
+    };
     document.addEventListener('click', handleOutsideClick);
     return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
@@ -33,14 +30,24 @@ export default function Header({ onSearch }) {
         />
       </div>
 
-      <nav className="hamburger-menu">
-        <button className="hamburger-icon" onClick={toggleDropdown}>☰</button>
-        {dropdownOpen && (
-          <div className="hamburger-dropdown">
-            <a href="#about-section">About</a>
-          </div>
-        )}
-      </nav>
+      {/* Currency Toggle */}
+      <div className="currency-toggle">
+        <button
+          onClick={() => setCurrency('USD')}
+          className={currency === 'USD' ? 'active' : ''}
+        >
+          $
+        </button>
+        <button
+          onClick={() => setCurrency('ZEC')}
+          className={currency === 'ZEC' ? 'active' : ''}
+        >
+          Ⓩ
+        </button>
+      </div>
+
+      
     </header>
   );
 }
+

@@ -9,23 +9,23 @@ export default function Modals({ modal, onClose }) {
 
   const summaryContent = {
     available: {
-      title: 'Available Funds',
+      title: 'Available',
       description: 'This is the total amount currently available to be allocated.'
     },
     requested: {
-      title: 'Total Requested',
+      title: 'Requested',
       description: 'Sum of all funding requests across active and completed projects.'
     },
     received: {
-      title: 'Total Received',
+      title: 'Received',
       description: 'Total amount that has been received by project creators.'
     },
     spent: {
-      title: 'Total Spent',
+      title: 'Spent',
       description: 'All funds that have already been used for project milestones.'
     },
     earned: {
-      title: 'Total Earned',
+      title: 'Earned',
       description: 'ZEC or USD earned by creators for completed milestones.'
     }
   };

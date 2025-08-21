@@ -10,7 +10,10 @@ export default function FilterBar({
   toggleStatus
 }) {
   const [sortOpen, setSortOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [statusOpen, setStatusOpen] = useState(false);
+
+  const sortRef = useRef(null);
+  const statusRef = useRef(null);
 
   const sortOptions = [
     { label: 'Checkpoints Reached (High → Low)', value: 'progress-desc' },
@@ -20,28 +23,50 @@ export default function FilterBar({
   ];
 
   const statuses = ['NOT STARTED', 'IN PROGRESS', 'COMPLETED', 'BLOCKED'];
+  const allSelected = statusFilters.length === statuses.length;
+  const noneSelected = statusFilters.length === 0;
 
+  // Close menus on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setSortOpen(false);
-      }
+      if (sortRef.current && !sortRef.current.contains(e.target)) setSortOpen(false);
+      if (statusRef.current && !statusRef.current.contains(e.target)) setStatusOpen(false);
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const toggleAllStatuses = () => {
+    if (allSelected) {
+      // deselect all
+      statuses.forEach((s) => {
+        if (statusFilters.includes(s)) toggleStatus(s);
+      });
+    } else {
+      // select all
+      statuses.forEach((s) => {
+        if (!statusFilters.includes(s)) toggleStatus(s);
+      });
+    }
+  };
+
+  const statusButtonLabel = () => {
+    if (allSelected) return 'Status: All';
+    if (noneSelected) return 'Status: None';
+    return `Status: ${statusFilters.length} selected`;
+    // Optional: show names -> `Status: ${statusFilters.join(', ')}`
+  };
+
   return (
     <div className="filter-bar">
       {/* Sort Dropdown */}
-      <div className="sort-dropdown" ref={dropdownRef}>
-        <button className="sort-button" onClick={() => setSortOpen(prev => !prev)}>
+      <div className="sort-dropdown" ref={sortRef}>
+        <button className="sort-button" onClick={() => setSortOpen((p) => !p)}>
           ⇅ Sort
         </button>
         {sortOpen && (
           <div className="dropdown-menu">
-            {sortOptions.map(option => (
+            {sortOptions.map((option) => (
               <div
                 key={option.value}
                 className={sortOrder === option.value ? 'selected' : ''}
@@ -57,33 +82,47 @@ export default function FilterBar({
         )}
       </div>
 
-      {/* Status Filters */}
-      <div className="status-toggle">
-        {statuses.map(status => (
-          <button
-            key={status}
-            className={statusFilters.includes(status) ? 'active' : ''}
-            onClick={() => toggleStatus(status)}
-          >
-            {status.replace('IN ', '')}
-          </button>
-        ))}
-      </div>
+      {/* Status Multi-Select Dropdown */}
+      <div className="multi-dropdown" ref={statusRef}>
+        <button
+          className="status-button"
+          aria-haspopup="true"
+          aria-expanded={statusOpen}
+          onClick={() => setStatusOpen((p) => !p)}
+        >
+          {statusButtonLabel()}
+          <span className="chevron">▾</span>
+        </button>
 
-      {/* Currency Toggle */}
-      <div className="currency-toggle">
-        <button
-          onClick={() => setCurrency('USD')}
-          className={currency === 'USD' ? 'active' : ''}
-        >
-          USD
-        </button>
-        <button
-          onClick={() => setCurrency('ZEC')}
-          className={currency === 'ZEC' ? 'active' : ''}
-        >
-          ZEC
-        </button>
+        {statusOpen && (
+          <div className="multi-menu" role="menu" aria-label="Filter by status">
+            <label className="multi-item select-all">
+              <input
+                type="checkbox"
+                checked={allSelected}
+                aria-checked={allSelected}
+                onChange={toggleAllStatuses}
+              />
+              <span>{allSelected ? 'Deselect all' : 'Select all'}</span>
+            </label>
+
+            <div className="multi-sep" />
+
+            {statuses.map((status) => {
+              const checked = statusFilters.includes(status);
+              return (
+                <label className="multi-item" key={status}>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => toggleStatus(status)}
+                  />
+                  <span>{status.replace('IN ', '')}</span>
+                </label>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

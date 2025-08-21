@@ -1,7 +1,7 @@
 .filter-bar {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   margin-bottom: 1rem;
   flex-wrap: wrap;
   background: #f2cda3;
@@ -19,7 +19,7 @@
   border: #283748 2px solid;
   padding: 0.5rem 1rem;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -72,26 +72,74 @@
   color: #f2cda3;
 }
 
-.currency-toggle {
-  display: inline-flex;
-  border-radius: 12px;
-  overflow: hidden;
+/* ---------- Multi-select dropdown for statuses ---------- */
+
+.multi-dropdown {
+  position: relative;
+}
+
+.status-button {
   background: #f2cda3;
-  border: #283748 2px solid;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.currency-toggle button {
-  padding: 0.4rem 1.2rem;
-  border: none;
-  font-weight: bold;
-  font-size: 0.85rem;
-  cursor: pointer;
   color: #283748;
-  background: none;
+  border: 2px solid #283748;
+  padding: 0.5rem 0.9rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.currency-toggle button.active {
-  background: #283748;
-  color: #f2cda3;
+.status-button .chevron {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.multi-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  background: #f2cda3;
+  font-family: system-ui, sans-serif;
+  color: #283748;
+  border: 2px solid #283748;
+  border-radius: 10px;
+  padding: 0.5rem;
+  z-index: 12;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+
+.multi-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.multi-item input {
+  accent-color: #283748; /* modern browsers */
+}
+
+.multi-item:hover {
+  background: #e2bd93;
+}
+
+.multi-item.select-all {
+  font-weight: 700;
+}
+
+.multi-sep {
+  height: 1px;
+  background: rgba(40,55,72,0.3);
+  margin: 6px 4px;
+}
+
+/* Optional: remove old chip group spacing if you had it */
+.status-toggle {
+  display: none; /* hide old button group */
 }

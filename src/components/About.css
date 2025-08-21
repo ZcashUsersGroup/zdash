@@ -44,3 +44,61 @@
   margin-top: 3rem;
   color: white;
 }
+
+.accordion {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.accordion-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: transparent;
+  color: #f2cda3;
+  padding: 0.9rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid #f2cda3;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  opacity: 0.9;
+}
+
+.accordion-item.open .chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  padding: 0.75rem 1rem 1rem;
+  background: rgba(255,255,255,0.04);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.accordion-panel p {
+  margin: 0 0 0.75rem 0;
+}

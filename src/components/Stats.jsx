@@ -24,8 +24,8 @@ export default function Stats({ cards, currency, exchangeRate, onOpenModal }) {
   const format = (zec) => {
   const safeZec = typeof zec === 'number' && !isNaN(zec) ? zec : 0;
   return currency === 'USD'
-    ? `$${(safeZec * exchangeRate).toFixed(2)} USD`
-    : `${safeZec.toFixed(3)} ZEC`;
+    ? `$${(safeZec * exchangeRate).toFixed(2)} `
+    : `${safeZec.toFixed(3)} Ⓩ`;
 };
 
 
@@ -37,19 +37,19 @@ export default function Stats({ cards, currency, exchangeRate, onOpenModal }) {
           <div className="stats-value">{format(totalAvailable)}</div>
         </div>
         <div onClick={() => onOpenModal('requested')}>
-          <div className="stats-label">Total Requested</div>
+          <div className="stats-label">Requested</div>
           <div className="stats-value">{format(totalRequested)}</div>
         </div>
         <div onClick={() => onOpenModal('received')}>
-          <div className="stats-label">Total Received</div>
+          <div className="stats-label">Received</div>
           <div className="stats-value">{format(totalReceived)}</div>
         </div>
         <div onClick={() => onOpenModal('spent')}>
-          <div className="stats-label">Total Spent</div>
+          <div className="stats-label">Spent</div>
           <div className="stats-value">{format(totalSpent)}</div>
         </div>
         <div onClick={() => onOpenModal('earned')}>
-          <div className="stats-label">Total Earned</div>
+          <div className="stats-label">Earned</div>
           <div className="stats-value">{"---"}</div>
         </div>
       </div>

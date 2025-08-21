@@ -8,11 +8,18 @@
   margin-bottom: 1rem;
   position: relative;
   font-family: system-ui, sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer; /* shows it's interactive */
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  background: #e2bd93; /* optional lighter shade on hover */
+}
 .menu-button {
   position: absolute;
-  top: 1rem;
+  top: 0.8rem;
   right: 1rem;
   background: none;
   border: none;
@@ -20,34 +27,33 @@
   cursor: pointer;
 }
 
-.status-badge {
+.status-circle {
   position: absolute;
   top: 1rem;
   right: 3rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  background: #283748;
-  color: #f2cda3;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #283748;
 }
 
+/* Colors for each status */
 .status-completed {
-  background: #283748;
-  color: #f2cda3;
+  background-color: #2ecc71; /* green */
 }
+
 .status-inprogress {
-  background: #283748;
-  color: #f2cda3;
+  background-color: #f1c40f; /* yellow */
 }
+
 .status-blocked {
-  background: #283748;
-  color: #f2cda3;
+  background-color: #e74c3c; /* red */
 }
+
 .status-notstarted {
-  background: #283748;
-  color: #f2cda3;
+  background-color: #bdc3c7; /* gray */
 }
+
 
 .contribute-button {
   background: #283748;
@@ -60,6 +66,7 @@
 }
 
 .progress-bar {
+  display: none;
   background: #f2cda3;
   border-radius: 10px;
   border: 2px solid #283748;

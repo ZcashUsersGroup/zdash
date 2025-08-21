@@ -19,8 +19,8 @@ export default function Card({ card, currency, exchangeRate, onOpenModal }) {
 
   const formatAmount = () => {
     const amt = currency === 'USD'
-      ? `$${(raised * exchangeRate).toFixed(2)} of $${(target * exchangeRate).toFixed(2)} USD`
-      : `${raised.toFixed(3)} of ${target.toFixed(3)} ZEC`;
+      ? `$${(raised * exchangeRate).toFixed(2)} of $${(target * exchangeRate).toFixed(2)} `
+      : `${raised.toFixed(3)} of ${target.toFixed(3)} Ⓩ`;
     return `Raised ${amt}`;
   };
 
@@ -32,19 +32,21 @@ export default function Card({ card, currency, exchangeRate, onOpenModal }) {
   }[status] || '';
 
   const openDetails = () => {
-    onOpenModal('details', { title, description, tags, priority, milestones });
-  };
-
-  const openQR = () => {
-    onOpenModal('qr', { address: wallet_addresses });
+    onOpenModal('details', {
+      title,
+      description,
+      tags,
+      priority,
+      milestones,          // keep sending in case you still use it elsewhere
+      address: wallet_addresses  // ✅ send address to details modal
+    });
   };
 
   return (
-    <div className="card">
-      <button className="menu-button" onClick={openDetails}>⋯</button>
-      <div className={`status-badge ${statusClass}`}>{status}</div>
+    <div className="card" onClick={openDetails}>
+      <button className="menu-button" onClick={openDetails}>?</button>
+      <div className={`status-circle ${statusClass}`} title={status}></div>
       <h3>{title}</h3>
-      <p>👤 {creators}<br />📅 {date}</p>
       <p><strong>{formatAmount()}</strong></p>
 
       <div className="progress-bar" data-progress={progress}>
@@ -75,8 +77,6 @@ export default function Card({ card, currency, exchangeRate, onOpenModal }) {
           );
         })}
       </div>
-      <br />
-      <button className="contribute-button" onClick={openQR}>CONTRIBUTE</button>
     </div>
   );
 }

@@ -35,12 +35,14 @@ function App() {
 
   return (
     <>
-      <Header onSearch={setSearchQuery} />
+      <Header 
+        onSearch={setSearchQuery}
+        currency={currency}
+        setCurrency={setCurrency} 
+      />
       <div className="page-section">
       <Stats cards={cards} currency={currency} exchangeRate={exchangeRate} onOpenModal={handleModalOpen} />
       <FilterBar
-        currency={currency}
-        setCurrency={setCurrency}
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
         toggleStatus={toggleStatus}

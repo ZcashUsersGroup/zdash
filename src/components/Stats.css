@@ -1,33 +1,29 @@
 .stats-box {
-  border: 2px solid #283748;
-  border-radius: 12px;
-  padding: 1rem;
   margin: 2rem 0;
-  background: #f2cda3;
-  color: #283748;
   font-family: system-ui, sans-serif;
 }
 
 .stats-inner {
   display: flex;
   justify-content: space-around;
-  text-align: center;
+  gap: 1rem; /* spacing between boxes */
 }
 
 .stats-inner > div {
   flex: 1;
-  border-right: 1px solid #f2cda3;
+  border: 2px solid #283748;
+  border-radius: 12px;
   padding: 1rem;
+  text-align: center;
+  background: #f2cda3;
+  color: #283748;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.stats-inner > div:last-child {
-  border-right: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .stats-inner > div:hover {
   background-color: #e2bd93;
+  transform: translateY(-3px); /* lift effect */
 }
 
 .stats-label {
