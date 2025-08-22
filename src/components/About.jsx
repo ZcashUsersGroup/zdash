@@ -85,6 +85,7 @@ export default function About() {
             />
           </div>
           <p className="qr-caption">ZDA GENERAL FUND</p>
+          <p className="qr-caption">t1MkgrZASAJbtNzEagDtUbapFKiS7sNQihm</p>
         <p className="footer-credit">
           © 2025 ZDA.{' '}
           <a href="https://coff.ee/jaxf" target="_blank" rel="noopener noreferrer">

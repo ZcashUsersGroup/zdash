@@ -6,7 +6,6 @@
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 1rem;
-  position: relative;
   font-family: system-ui, sans-serif;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer; /* shows it's interactive */
@@ -17,6 +16,37 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   background: #e2bd93; /* optional lighter shade on hover */
 }
+
+/* Header row for circle + title */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Status circle is now inline, not absolute */
+.status-circle {
+  position: static;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #283748;
+  flex-shrink: 0;
+}
+
+/* Colors for each status */
+.status-completed   { background-color: #2ecc71; } /* green */
+.status-inprogress  { background-color: #f1c40f; } /* yellow */
+.status-blocked     { background-color: #e74c3c; } /* red */
+.status-notstarted  { background-color: #bdc3c7; } /* gray */
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 .menu-button {
   position: absolute;
   top: 0.8rem;
@@ -26,34 +56,6 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
-
-.status-circle {
-  position: absolute;
-  top: 1rem;
-  right: 3rem;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #283748;
-}
-
-/* Colors for each status */
-.status-completed {
-  background-color: #2ecc71; /* green */
-}
-
-.status-inprogress {
-  background-color: #f1c40f; /* yellow */
-}
-
-.status-blocked {
-  background-color: #e74c3c; /* red */
-}
-
-.status-notstarted {
-  background-color: #bdc3c7; /* gray */
-}
-
 
 .contribute-button {
   background: #283748;
@@ -66,7 +68,6 @@
 }
 
 .progress-bar {
-  display: none;
   background: #f2cda3;
   border-radius: 10px;
   border: 2px solid #283748;
@@ -85,6 +86,7 @@
 
 .checkpoint {
   position: absolute;
+  visibility: hidden;
   top: 0;
   width: 12px;
   height: 12px;
@@ -101,6 +103,7 @@
 
 .checkpoint-label {
   position: absolute;
+  visibility: hidden;
   top: 20px;
   font-size: 0.65rem;
   color: #283748;

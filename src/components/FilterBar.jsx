@@ -117,7 +117,7 @@ export default function FilterBar({
                     checked={checked}
                     onChange={() => toggleStatus(status)}
                   />
-                  <span>{status.replace('IN ', '')}</span>
+                  <span>{status.replace('IN ', 'IN ')}</span>
                 </label>
               );
             })}
