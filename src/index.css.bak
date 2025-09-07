@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #283748;
+  background: #f2cda3;
+}
+
+.page-section {
+  padding: 0 1rem;              /* mobile-friendly horizontal padding */
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 0 2rem;            /* more padding on tablets and up */
+  }
+}

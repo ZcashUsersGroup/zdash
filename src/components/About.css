@@ -102,3 +102,32 @@
 .accordion-panel p {
   margin: 0 0 0.75rem 0;
 }
+
+.footer-credit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: #283748;
+  margin-top: 1.5rem;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.footer-icon {
+  width: 28px;
+  height: 28px;
+  color: #283748;   /* ensure they render dark */
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.15);
+  color: #000;      /* hover darker */
+}

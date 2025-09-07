@@ -3,11 +3,70 @@
   font-family: system-ui, sans-serif;
 }
 
+.stats-box {
+  margin: 2rem 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* FLEX layout, centered, wraps to rows. Max 3 per row via max-width cap */
 .stats-inner {
   display: flex;
-  justify-content: space-around;
-  gap: 1rem; /* spacing between boxes */
+  flex-wrap: wrap;          /* allow wrapping on smaller widths */
+  justify-content: center;  /* center the row of cards */
+  gap: 1rem;                /* spacing between boxes */
+  margin: 0 auto;           /* center the whole block */
+  max-width: 1100px;        /* prevents a 4th column on wide screens */
 }
+
+/* Cards keep original theme; only add flex-basis for responsive sizing */
+.stats-inner > div {
+  flex: 1 1 220px;          /* grow/shrink, min ~220px */
+  max-width: 320px;         /* so 3 columns max within max-width */
+  border: 2px solid #283748;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  background: #f2cda3;
+  color: #283748;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.stats-inner > div:hover {
+  background-color: #e2bd93;
+  transform: translateY(-3px); /* lift effect */
+}
+
+.stats-label {
+  font-size: 0.9rem;
+  color: #283748;
+}
+
+.stats-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ===== Responsive tweaks (layout only) ===== */
+
+/* Phones: single column */
+@media (max-width: 600px) {
+  .stats-inner > div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Tablets: two columns */
+@media (min-width: 601px) and (max-width: 900px) {
+  .stats-inner > div {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+/* Desktops: up to three columns (handled by default rules above) */
+
 
 .stats-inner > div {
   flex: 1;

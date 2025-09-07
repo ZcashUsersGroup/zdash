@@ -1,0 +1,37 @@
+.stats-box {
+  margin: 2rem 0;
+  font-family: system-ui, sans-serif;
+}
+
+.stats-inner {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem; /* spacing between boxes */
+}
+
+.stats-inner > div {
+  flex: 1;
+  border: 2px solid #283748;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  background: #f2cda3;
+  color: #283748;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.stats-inner > div:hover {
+  background-color: #e2bd93;
+  transform: translateY(-3px); /* lift effect */
+}
+
+.stats-label {
+  font-size: 0.9rem;
+  color: #283748;
+}
+
+.stats-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
